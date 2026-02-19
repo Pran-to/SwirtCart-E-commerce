@@ -14,25 +14,46 @@ const loadCategories = async () => {
   displayCategories(data);
 };
 
-displayCategories = (categories) => {
-  const categorieContainer = document.getElementById("categorie-container");
-
-  categories.forEach((cat) => {
-    const categoriDiv = document.createElement("div");
-    categoriDiv.innerHTML = `
-     <button class="btn btn-sm hover:bg-[#4f39f6] hover:text-white" > ${cat}</button>
-    `;
-    categorieContainer.append(categoriDiv);
-  });
-};
-
 // // All products api
 
 const allProducts = async () => {
+  const productsSec = document.getElementById("productsDis");
+  productsSec.innerHTML = "";
   const res = await fetch("https://fakestoreapi.com/products");
   const data = await res.json();
   displayProducts(data);
 };
+
+//  display category
+const displayCategories = (categories) => {
+  const categorieContainer = document.getElementById("categorie-container");
+
+  categories.forEach((cat) => {
+    const categoriDiv = document.createElement("div");
+    const button = document.createElement("button");
+    button.className = "btn btn-sm hover:bg-[#4f39f6] hover:text-white";
+    button.innerText = cat;
+    button.addEventListener("click", () => {
+      categoryData(cat);
+    });
+
+    categoriDiv.appendChild(button);
+    categorieContainer.append(categoriDiv);
+  });
+};
+
+// category data api
+const categoryData = (cate) => {
+  const productsSec = document.getElementById("productsDis");
+  productsSec.innerHTML = "";
+
+  fetch(`https://fakestoreapi.com/products/category/${cate}`)
+    .then((res) => res.json())
+    .then((data) => displayProducts(data))
+    .catch((error) => console.error("Error fetching data:", error));
+};
+
+//  load all products
 displayProducts = (products) => {
   const productsSec = document.getElementById("productsDis");
   products.forEach((p) => {
@@ -67,5 +88,4 @@ displayProducts = (products) => {
   });
 };
 
-allProducts();
 loadCategories();

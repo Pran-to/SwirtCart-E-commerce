@@ -6,6 +6,14 @@ navLinks.forEach((ele) => {
   }
 });
 
+const toggleActiveButton = (clickedBtn) => {
+  const allButtons = document.querySelectorAll(" .category-btn");
+  allButtons.forEach((btn) => {
+    btn.classList.remove("bg-[#4f39f6]", "text-white");
+  });
+  clickedBtn.classList.add("bg-[#4f39f6]", "text-white");
+};
+
 // all categories api
 const loadCategories = async () => {
   const res = await fetch("https://fakestoreapi.com/products/categories");
@@ -31,9 +39,11 @@ const displayCategories = (categories) => {
   categories.forEach((cat) => {
     const categoriDiv = document.createElement("div");
     const button = document.createElement("button");
-    button.className = "btn btn-sm hover:bg-[#4f39f6] hover:text-white";
+    button.className =
+      "btn btn-sm hover:bg-[#4f39f6] hover:text-white category-btn";
     button.innerText = cat;
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
+      toggleActiveButton(e.target);
       categoryData(cat);
     });
 

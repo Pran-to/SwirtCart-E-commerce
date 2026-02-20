@@ -80,8 +80,11 @@
         class="flex py-5 justify-center gap-5 flex-wrap"
       >
         <button
-          onclick="`${allProducts()}`"
-          class="btn btn-sm bg-[#4f39f6] hover:text-white"
+          onclick="
+            toggleActiveButton(this);
+            allProducts();
+          "
+          class="btn btn-sm bg-[#4f39f6] hover:text-white category-btn"
         >
           All
         </button>

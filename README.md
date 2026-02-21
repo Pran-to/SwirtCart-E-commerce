@@ -14,6 +14,7 @@ Qus : What is the significance of async/await in fetching API data?
 Ans : async/await makes asynchronous code (like fetching data from a server) look and behave like synchronous code.
 
 Qus : Explain the concept of Scope in JavaScript (Global, Function, Block).
+
 Ans : Scope determines where your variables are "visible" or accessible.
 Global Scope: Variables declared outside any function. Accessible from anywhere in your code.
 Function Scope: Variables declared inside a function. They can only be used inside that specific function.

@@ -45,10 +45,10 @@
               tabindex="-1"
               class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow font-semibold"
             >
-              <li><a href="index.html">Home</a></li>
-              <li><a href="product.html">Products</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <li><a id="m-home" href="index.html">Home</a></li>
+              <li><a id="m-product" href="product.html">Products</a></li>
+              <li><a id="m-about" href="about.html">About</a></li>
+              <li><a id="m-contact" href="contact.html">Contact</a></li>
             </ul>
           </div>
           <a
@@ -59,10 +59,10 @@
         </div>
         <div class="navbar-center hidden lg:flex font-semibold">
           <ul class="menu menu-horizontal px-1">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="product.html">Products</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a id="d-home" href="index.html">Home</a></li>
+            <li><a id="d-product" href="product.html">Products</a></li>
+            <li><a id="d-about" href="about.html">About</a></li>
+            <li><a id="d-contact" href="contact.html">Contact</a></li>
           </ul>
         </div>
         <div class="navbar-end">
@@ -176,5 +176,8 @@
       </div>
     </footer>
     <script src="functional.js"></script>
+    <script>
+      setActive("product");
+    </script>
   </body>
 </html>

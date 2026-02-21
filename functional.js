@@ -1,10 +1,10 @@
-const activePage = window.location.pathname;
-const navLinks = document.querySelectorAll("header  a");
-navLinks.forEach((ele) => {
-  if (ele.href.includes(`${activePage}`)) {
-    ele.classList.add("bg-[#4f39f6]");
-  }
-});
+function setActive(pageName) {
+    const activeClasses = ['bg-[#4f39f6]', 'text-white', 'focus:bg-[#4f39f6]'];
+    const desktopLink = document.getElementById(`d-${pageName}`);
+    const mobileLink = document.getElementById(`m-${pageName}`);
+    if (desktopLink) desktopLink.classList.add(...activeClasses);
+    if (mobileLink) mobileLink.classList.add(...activeClasses);
+}
 
 const toggleActiveButton = (clickedBtn) => {
   const allButtons = document.querySelectorAll(" .category-btn");
